@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { getConciergeResponse } from '../services/geminiService.ts';
-import { Message } from '../types.ts';
+import { getConciergeResponse } from '../services/geminiService';
+import { Message } from '../types';
 
 const AIConcierge: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
