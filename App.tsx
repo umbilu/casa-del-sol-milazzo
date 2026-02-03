@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from './components/Navbar.tsx';
 import Hero from './components/Hero.tsx';
@@ -7,7 +6,7 @@ import Description from './components/Description.tsx';
 import PointsOfInterest from './components/PointsOfInterest.tsx';
 import DayTrips from './components/DayTrips.tsx';
 import ContactForm from './components/ContactForm.tsx';
-import DownloadSource from './components/DownloadSource.tsx';
+import AIConcierge from './components/AIConcierge.tsx';
 
 const App: React.FC = () => {
   return (
@@ -33,8 +32,8 @@ const App: React.FC = () => {
       {/* Contact & Booking (Contatti) */}
       <ContactForm />
 
-      {/* Source Download Feature */}
-      <DownloadSource />
+      {/* AI Assistant */}
+      <AIConcierge />
 
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">

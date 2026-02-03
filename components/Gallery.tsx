@@ -1,14 +1,16 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { GalleryImage } from '../types.ts';
 
 const IMAGES: GalleryImage[] = [
-  { url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200', alt: 'Ingresso Indipendente Casa del Sol', category: 'La Casa' },
-  { url: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200', alt: 'Soggiorno Luminoso e Accogliente', category: 'La Casa' },
-  { url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=1200', alt: 'Terrazzini con Scorcio di Mare', category: 'La Casa' },
-  { url: 'https://images.unsplash.com/photo-1544013583-1d9333f2824b?auto=format&fit=crop&q=80&w=1200', alt: 'Il Castello di Milazzo al Tramonto', category: 'Dintorni' },
-  { url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200', alt: 'Baia del Tono e Spiaggia di Ponente', category: 'Dintorni' },
-  { url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&q=80&w=1200', alt: 'Borgo Antico di Milazzo', category: 'Dintorni' },
+  { url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200', alt: 'Ingresso Casa del Sol', category: 'La Casa' },
+  { url: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200', alt: 'Interni Accoglienti', category: 'La Casa' },
+  { url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=1200', alt: 'Vista Terrazzini', category: 'La Casa' },
+  { url: 'https://images.unsplash.com/photo-1544013583-1d9333f2824b?auto=format&fit=crop&q=80&w=1200', alt: 'Castello di Milazzo', category: 'Dintorni' },
+  { url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200', alt: 'Spiaggia di Ponente', category: 'Dintorni' },
+  { url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&q=80&w=1200', alt: 'Borgo di Milazzo', category: 'Dintorni' },
+  { url: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=1200', alt: 'Dettagli Siciliani', category: 'La Casa' },
+  { url: 'https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&q=80&w=1200', alt: 'Atmosfera Mediterranea', category: 'Dintorni' },
+  { url: 'https://images.unsplash.com/photo-1519449556851-5720b33024e7?auto=format&fit=crop&q=80&w=1200', alt: 'Scorcio di Mare', category: 'Dintorni' },
 ];
 
 const Gallery: React.FC = () => {
@@ -53,26 +55,26 @@ const Gallery: React.FC = () => {
   }, [selectedImageIndex, showNext, showPrev]);
 
   return (
-    <section id="immagini" className="py-24 bg-white">
+    <section id="immagini" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Galleria Fotografica</h2>
-          <div className="w-24 h-1 bg-orange-600 mx-auto mb-6"></div>
-          <p className="text-slate-600 max-w-xl mx-auto">
-            Scopri gli ambienti della Casa del Sol e la bellezza senza tempo che circonda il borgo di Milazzo.
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">La Nostra Galleria</h2>
+          <div className="w-16 h-1 bg-orange-600 mx-auto mb-4"></div>
+          <p className="text-slate-500 max-w-lg mx-auto text-sm md:text-base italic">
+            Atmosfere mediterranee a pochi passi dal mare.
           </p>
         </div>
 
-        {/* Filter */}
-        <div className="flex justify-center flex-wrap gap-2 mb-12">
+        {/* Categorie Semplici */}
+        <div className="flex justify-center flex-wrap gap-6 mb-12">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full transition-all border duration-300 font-medium ${
+              className={`text-xs font-bold tracking-widest uppercase transition-all ${
                 filter === cat
-                  ? 'bg-orange-600 text-white border-orange-600 shadow-md'
-                  : 'bg-white text-slate-600 border-slate-200 hover:border-orange-400 hover:text-orange-600'
+                  ? 'text-orange-600 scale-110'
+                  : 'text-slate-300 hover:text-slate-500'
               }`}
             >
               {cat}
@@ -80,13 +82,13 @@ const Gallery: React.FC = () => {
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Griglia Quadrata */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
           {filteredImages.map((img, index) => (
             <div 
               key={index} 
               onClick={() => openLightbox(img.url)}
-              className="group relative overflow-hidden rounded-2xl shadow-lg cursor-zoom-in h-80 bg-slate-100"
+              className="group relative aspect-square overflow-hidden bg-slate-100 cursor-pointer rounded-sm"
             >
               <img
                 src={img.url}
@@ -94,13 +96,9 @@ const Gallery: React.FC = () => {
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
-                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-sm font-semibold uppercase tracking-widest text-orange-400 mb-1">{img.category}</p>
-                  <h3 className="text-xl font-bold text-white mb-2">{img.alt}</h3>
-                  <div className="flex items-center text-orange-300 text-sm">
-                    <i className="fas fa-search-plus mr-2"></i> Ingrandisci
-                  </div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                <div className="w-8 h-8 md:w-12 md:h-12 border border-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                   <i className="fas fa-plus text-white text-xs md:text-base"></i>
                 </div>
               </div>
             </div>
@@ -108,53 +106,34 @@ const Gallery: React.FC = () => {
         </div>
       </div>
 
-      {/* Lightbox / Preview Modal */}
+      {/* Lightbox Minimalista */}
       {selectedImageIndex !== null && (
         <div 
-          className="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-sm flex items-center justify-center animate-fade-in p-4 md:p-10"
+          className="fixed inset-0 z-[100] bg-white flex items-center justify-center p-4 md:p-12 animate-fade-in"
           onClick={closeLightbox}
         >
-          {/* Close Button */}
-          <button 
-            className="absolute top-6 right-6 text-white text-3xl hover:text-orange-400 transition-colors z-[110]"
-            onClick={closeLightbox}
-          >
-            <i className="fas fa-times"></i>
+          <button className="absolute top-8 right-8 text-slate-900 text-3xl hover:rotate-90 transition-transform" onClick={closeLightbox}>
+            <i className="fas fa-times font-light"></i>
           </button>
 
-          {/* Navigation Arrows */}
-          <button 
-            className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all z-[110]"
-            onClick={showPrev}
-          >
-            <i className="fas fa-chevron-left"></i>
-          </button>
-          <button 
-            className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all z-[110]"
-            onClick={showNext}
-          >
-            <i className="fas fa-chevron-right"></i>
-          </button>
-
-          {/* Main Image Container */}
-          <div 
-            className="relative max-w-5xl w-full h-full flex flex-col items-center justify-center animate-scale-in"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={IMAGES[selectedImageIndex].url}
-              alt={IMAGES[selectedImageIndex].alt}
-              className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
-            />
-            <div className="mt-6 text-center text-white">
-              <p className="text-orange-400 uppercase tracking-widest text-sm font-bold mb-2">
-                {IMAGES[selectedImageIndex].category}
-              </p>
-              <h4 className="text-2xl font-serif">{IMAGES[selectedImageIndex].alt}</h4>
-              <p className="text-slate-400 mt-2 text-sm">
-                {selectedImageIndex + 1} di {IMAGES.length}
-              </p>
+          <div className="flex w-full h-full items-center justify-between">
+            <button className="text-slate-300 hover:text-orange-600 transition-colors hidden md:block" onClick={showPrev}>
+              <i className="fas fa-chevron-left text-4xl"></i>
+            </button>
+            
+            <div className="flex-1 flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+              <img
+                src={IMAGES[selectedImageIndex].url}
+                alt={IMAGES[selectedImageIndex].alt}
+                className="max-w-full max-h-[75vh] object-contain"
+              />
+              <p className="mt-8 text-slate-800 font-serif text-lg tracking-wide">{IMAGES[selectedImageIndex].alt}</p>
+              <div className="mt-2 text-xs text-slate-400 uppercase tracking-widest">{selectedImageIndex + 1} / {IMAGES.length}</div>
             </div>
+
+            <button className="text-slate-300 hover:text-orange-600 transition-colors hidden md:block" onClick={showNext}>
+              <i className="fas fa-chevron-right text-4xl"></i>
+            </button>
           </div>
         </div>
       )}
