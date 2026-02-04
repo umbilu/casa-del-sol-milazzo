@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&q=80&w=1920"
+          src="/src/images/milazzo.webp"
           alt="Sicilia Landscape"
           className="w-full h-full object-cover brightness-[0.55]"
         />
