@@ -14,23 +14,20 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-5xl">
+        <span className="font-semibold tracking-widest uppercase mb-4 block animate-fade-in" style={{ color: '#F5A623' }}>Benvenuti in Sicilia</span>
         <img
-          src="/images/logocasadelsol.png"
-          alt="Casa del Sol Logo"
-          className="mx-auto w-32 md:w-48 mb-6 animate-fade-in"
+          src="/images/interni/logocasadelsoltrasp.png"
+          alt="Casa del Sol"
+          className="mx-auto w-64 md:w-96 mb-8 animate-fade-in-up"
         />
-        <span className="text-yellow-400 font-semibold tracking-widest uppercase mb-4 block animate-fade-in">Benvenuti in Sicilia</span>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-serif font-bold mb-8 leading-tight animate-fade-in-up">
-          La Casa del Sol vi da il benvenuto nella magica isola di Sicilia.
-        </h1>
         <p className="text-lg md:text-xl text-slate-100 mb-10 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-up delay-100">
           Se siete alla ricerca di un alloggio nella meravigliosa Città di Milazzo, Casa del Sol offre un appartamento con entrata indipendente all'interno di un palazzo residenziale. Lontani dal caos della città ma a pochi minuti dal centro, è situato nel borgo antico a pochi passi dal castello.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-200">
-          <a href="#descrizione" className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-700 transition-all shadow-xl">
+          <a href="#descrizione" className="text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl" style={{ backgroundColor: '#00628B' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#004d6d'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00628B'}>
             Scopri la Casa
           </a>
-          <a href="#punti-interesse" className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-sm">
+          <a href="#punti-interesse" className="border-2 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-sm" style={{ borderColor: '#5DADE2' }}>
             Esplora i Dintorni
           </a>
         </div>

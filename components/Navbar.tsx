@@ -25,8 +25,8 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <a href="#" className={`text-2xl font-serif font-bold transition-colors ${isScrolled ? 'text-orange-600' : 'text-white'}`}>
-          Casa del <span className="text-yellow-400">Sol</span>
+        <a href="#" className={`text-2xl font-serif font-bold transition-colors ${isScrolled ? 'text-[#00628B]' : 'text-white'}`}>
+          Casa del <span style={{ color: '#F5A623' }}>Sol</span>
         </a>
 
         {/* Desktop Menu */}
@@ -42,7 +42,10 @@ const Navbar: React.FC = () => {
           ))}
           <a
             href="#contatti"
-            className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full font-semibold transition-transform active:scale-95 shadow-lg"
+            className="text-white px-6 py-2 rounded-full font-semibold transition-transform active:scale-95 shadow-lg"
+            style={{ backgroundColor: '#00628B' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#004d6d'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00628B'}
           >
             Prenota
           </a>
@@ -53,7 +56,7 @@ const Navbar: React.FC = () => {
           className="lg:hidden text-2xl focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} ${isScrolled ? 'text-orange-900' : 'text-white'}`}></i>
+          <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} ${isScrolled ? 'text-[#00628B]' : 'text-white'}`}></i>
         </button>
       </div>
 
@@ -73,7 +76,8 @@ const Navbar: React.FC = () => {
             ))}
             <a
               href="#contatti"
-              className="bg-orange-600 text-white text-center py-3 rounded-lg font-bold"
+              className="text-white text-center py-3 rounded-lg font-bold"
+              style={{ backgroundColor: '#00628B' }}
               onClick={() => setIsMenuOpen(false)}
             >
               Prenota Ora

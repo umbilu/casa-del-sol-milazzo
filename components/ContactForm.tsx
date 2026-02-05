@@ -22,13 +22,13 @@ const ContactForm: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row">
           {/* Info Side */}
-          <div className="lg:w-1/3 p-12 bg-orange-600 text-white flex flex-col justify-between">
+          <div className="lg:w-1/3 p-12 text-white flex flex-col justify-between" style={{ backgroundColor: '#00628B' }}>
             <div>
               <h2 className="text-3xl font-serif font-bold mb-6">Prenota il tuo Soggiorno</h2>
-              <p className="text-orange-100 mb-10">
+              <p className="mb-10" style={{ color: '#E3F2FD' }}>
                 Siamo pronti ad accoglierti nella meravigliosa Milazzo. Scrivici per verificare la disponibilità o per qualsiasi domanda sulla Casa del Sol.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
@@ -88,10 +88,12 @@ const ContactForm: React.FC = () => {
                     <input
                       type="text"
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-600 focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:outline-none"
+                      onFocus={(e) => e.currentTarget.style.outline = '2px solid #5DADE2'}
+                      onBlur={(e) => e.currentTarget.style.outline = 'none'}
                       placeholder="Il tuo nome"
                       value={formData.nome}
-                      onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                     />
                   </div>
                   <div>
@@ -102,7 +104,7 @@ const ContactForm: React.FC = () => {
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-600 focus:outline-none"
                       placeholder="latua@email.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
                   </div>
                 </div>
@@ -113,7 +115,7 @@ const ContactForm: React.FC = () => {
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-600 focus:outline-none"
                     placeholder="Es: Prima settimana di Luglio, 2 persone"
                     value={formData.date}
-                    onChange={(e) => setFormData({...formData, date: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                   />
                 </div>
                 <div>
@@ -123,12 +125,15 @@ const ContactForm: React.FC = () => {
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-600 focus:outline-none resize-none"
                     placeholder="Come possiamo aiutarti?"
                     value={formData.messaggio}
-                    onChange={(e) => setFormData({...formData, messaggio: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, messaggio: e.target.value })}
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 bg-orange-600 text-white rounded-xl font-bold text-lg hover:bg-orange-700 transition-all shadow-lg active:scale-95"
+                  className="w-full py-4 text-white rounded-xl font-bold text-lg transition-all shadow-lg active:scale-95"
+                  style={{ backgroundColor: '#00628B' }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#004d6d'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00628B'}
                 >
                   Invia Messaggio
                 </button>
