@@ -14,6 +14,11 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-5xl">
+        <img
+          src="/src/images/logocasadelsol.png"
+          alt="Casa del Sol Logo"
+          className="mx-auto w-32 md:w-48 mb-6 animate-fade-in"
+        />
         <span className="text-yellow-400 font-semibold tracking-widest uppercase mb-4 block animate-fade-in">Benvenuti in Sicilia</span>
         <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-serif font-bold mb-8 leading-tight animate-fade-in-up">
           La Casa del Sol vi da il benvenuto nella magica isola di Sicilia.
