@@ -2,16 +2,8 @@
 import React, { useState, useEffect } from 'react';
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
     { name: 'Home', href: '#presentazione' },
@@ -23,7 +15,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
+    <nav className="fixed w-full z-50 transition-all duration-300 bg-white shadow-md py-3">
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <a href="#" className="flex items-center">
           <img
@@ -39,7 +31,7 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className={`font-medium transition-colors hover:text-yellow-500 ${isScrolled ? 'text-slate-700' : 'text-white'}`}
+              className="font-medium transition-colors hover:text-yellow-500 text-[#00628B]"
             >
               {link.name}
             </a>
@@ -60,7 +52,7 @@ const Navbar: React.FC = () => {
           className="lg:hidden text-2xl focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} ${isScrolled ? 'text-[#00628B]' : 'text-white'}`}></i>
+          <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-[#00628B]`}></i>
         </button>
       </div>
 

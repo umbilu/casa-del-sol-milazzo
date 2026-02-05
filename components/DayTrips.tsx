@@ -6,7 +6,7 @@ const DayTrips: React.FC = () => {
     <section id="gite" className="py-24 bg-slate-900 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Gite Fuori Porta</h2>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Gite Fuori Porta</h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
           <p className="text-slate-400 max-w-2xl mx-auto">
             Partendo da Milazzo, puoi organizzare diverse gite ideali in ogni stagione, spaziando tra siti archeologici, borghi medievali e riserve naturali.
@@ -20,9 +20,9 @@ const DayTrips: React.FC = () => {
               <div className="w-12 h-12 bg-yellow-500 text-slate-900 rounded-full flex items-center justify-center text-xl font-bold">
                 <i className="fas fa-columns"></i>
               </div>
-              <h3 className="text-2xl font-serif font-bold">Storia e Archeologia</h3>
+              <h3 className="text-xl font-serif font-bold">Storia e Archeologia</h3>
             </div>
-            
+
             <div className="space-y-6">
               <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
                 <h4 className="font-bold text-yellow-500 mb-2">Tindari e la Madonna Nera</h4>
@@ -45,9 +45,9 @@ const DayTrips: React.FC = () => {
               <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
                 <i className="fas fa-mountain"></i>
               </div>
-              <h3 className="text-2xl font-serif font-bold">Borghi e Paesaggi</h3>
+              <h3 className="text-xl font-serif font-bold">Borghi e Paesaggi</h3>
             </div>
-            
+
             <div className="space-y-6">
               <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
                 <h4 className="font-bold text-orange-500 mb-2">San Marco d'Alunzio</h4>
@@ -76,9 +76,9 @@ const DayTrips: React.FC = () => {
               <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold">
                 <i className="fas fa-ship"></i>
               </div>
-              <h3 className="text-2xl font-serif font-bold">Escursioni Marittime</h3>
+              <h3 className="text-xl font-serif font-bold">Escursioni Marittime</h3>
             </div>
-            
+
             <div className="space-y-6">
               <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
                 <h4 className="font-bold text-blue-400 mb-2">Vulcano e Lipari</h4>

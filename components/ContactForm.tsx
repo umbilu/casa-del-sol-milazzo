@@ -24,7 +24,7 @@ const ContactForm: React.FC = () => {
           {/* Info Side */}
           <div className="lg:w-1/3 p-12 text-white flex flex-col justify-between" style={{ backgroundColor: '#00628B' }}>
             <div>
-              <h2 className="text-3xl font-serif font-bold mb-6">Prenota il tuo Soggiorno</h2>
+              <h2 className="text-2xl font-serif font-bold mb-6">Prenota il tuo Soggiorno</h2>
               <p className="mb-10" style={{ color: '#E3F2FD' }}>
                 Siamo pronti ad accoglierti nella meravigliosa Milazzo. Scrivici per verificare la disponibilità o per qualsiasi domanda sulla Casa del Sol.
               </p>
@@ -77,7 +77,7 @@ const ContactForm: React.FC = () => {
                 <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mb-6">
                   <i className="fas fa-check"></i>
                 </div>
-                <h3 className="text-2xl font-bold mb-2 text-slate-900">Richiesta Ricevuta!</h3>
+                <h3 className="text-xl font-bold mb-2 text-slate-900">Richiesta Ricevuta!</h3>
                 <p className="text-slate-500">Ti risponderemo al più presto con tutti i dettagli per la tua vacanza.</p>
               </div>
             ) : (

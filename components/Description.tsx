@@ -20,7 +20,7 @@ const Description: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           {/* Text Side */}
           <div className="lg:w-1/2">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 text-slate-900">Il Tuo Rifugio nel Borgo Antico</h2>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8 text-slate-900">Il Tuo Rifugio nel Borgo Antico</h2>
             <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
               <p>
                 La **Casa del Sol** è la scelta ideale per chi desidera vivere l'autenticità di Milazzo senza rinunciare alla tranquillità. Situata nel cuore del **borgo antico**, la casa gode di una posizione privilegiata, protetta dal rumore cittadino ma a pochi passi dalle principali attrazioni storiche.
@@ -55,7 +55,7 @@ const Description: React.FC = () => {
                     <p className="text-slate-500 text-sm">Cosa troverai al tuo arrivo</p>
                   </div>
                 </div>
-                
+
                 <p className="text-slate-600 mb-6">
                   L'appartamento è corredato di tutto il necessario per bagno e cucina. Troverete biancheria pulita, terrazzini con uno splendido scorcio di mare e la massima disponibilità per accogliervi al meglio.
                 </p>
@@ -72,7 +72,7 @@ const Description: React.FC = () => {
                   </ul>
                 </div>
 
-                <a 
+                <a
                   href="#contatti"
                   className="w-full mt-8 bg-orange-600 text-white py-4 rounded-xl font-bold hover:bg-orange-700 transition-all flex items-center justify-center space-x-2"
                 >

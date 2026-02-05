@@ -63,7 +63,7 @@ const Gallery: React.FC = () => {
     <section id="immagini" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">La Nostra Galleria</h2>
+          <h2 className="text-2xl md:text-3xl font-serif font-bold mb-4">La Nostra Galleria</h2>
           <div className="w-16 h-1 bg-orange-600 mx-auto mb-4"></div>
           <p className="text-slate-500 max-w-lg mx-auto text-sm md:text-base italic">
             Atmosfere mediterranee a pochi passi dal mare.

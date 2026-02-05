@@ -13,7 +13,7 @@ const PointsOfInterest: React.FC = () => {
     <section id="punti-interesse" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-slate-900">Punti di Interesse</h2>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-slate-900">Punti di Interesse</h2>
           <div className="w-24 h-1 bg-orange-600 mx-auto mb-6"></div>
           <p className="text-slate-600 max-w-2xl mx-auto">
             La Casa del Sol si trova nel cuore del borgo antico. Ecco le distanze dai principali luoghi che rendono unica Milazzo.
@@ -26,7 +26,7 @@ const PointsOfInterest: React.FC = () => {
               <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-orange-600 text-2xl mb-6 group-hover:bg-orange-600 group-hover:text-white transition-colors">
                 <i className={`fas ${poi.icon}`}></i>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">{poi.name}</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{poi.name}</h3>
               <p className="text-orange-600 font-bold text-lg">{poi.dist}</p>
             </div>
           ))}

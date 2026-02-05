@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 text-center px-4 max-w-5xl">
         <span className="font-semibold tracking-widest uppercase mb-4 block animate-fade-in" style={{ color: '#F5A623' }}>Benvenuti in Sicilia</span>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-serif font-bold mb-8 leading-tight animate-fade-in-up">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl text-white font-serif font-bold mb-8 leading-tight animate-fade-in-up">
           La Casa del Sol vi da il benvenuto nella magica isola di Sicilia.
         </h1>
         <p className="text-lg md:text-xl text-slate-100 mb-10 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-up delay-100">
