@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="../src/images/milazzo.jpeg"
+          src="/images/milazzo.jpeg"
           alt="Sicilia Landscape"
           className="w-full h-full object-cover brightness-[0.55]"
         />
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 text-center px-4 max-w-5xl">
         <img
-          src="/src/images/logocasadelsol.png"
+          src="/images/logocasadelsol.png"
           alt="Casa del Sol Logo"
           className="mx-auto w-32 md:w-48 mb-6 animate-fade-in"
         />
