@@ -25,8 +25,12 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <a href="#" className={`text-2xl font-serif font-bold transition-colors ${isScrolled ? 'text-[#00628B]' : 'text-white'}`}>
-          Casa del <span style={{ color: '#F5A623' }}>Sol</span>
+        <a href="#" className="flex items-center">
+          <img
+            src="/images/interni/logocasadelsoltrasp.png"
+            alt="Casa del Sol Logo"
+            className="h-10 md:h-12 w-auto object-contain"
+          />
         </a>
 
         {/* Desktop Menu */}

@@ -11,6 +11,11 @@ const IMAGES: GalleryImage[] = [
   { url: '/images/interni/20250830_112815.jpg', alt: 'Arredi Moderni', category: 'La Casa' },
   { url: '/images/interni/20250830_113247.jpg', alt: 'Vista Interna', category: 'La Casa' },
   { url: '/images/interni/20250830_113259.jpg', alt: 'Ambiente Luminoso', category: 'La Casa' },
+  { url: '/images/interni/bagno.jpg', alt: 'Bagno Moderno', category: 'La Casa' },
+  { url: '/images/interni/camerapranzo.jpg', alt: 'Sala da Pranzo', category: 'La Casa' },
+  { url: '/images/interni/doccia.jpg', alt: 'Dettaglio Doccia', category: 'La Casa' },
+  { url: '/images/interni/salotto.jpg', alt: 'Salotto Confortevole', category: 'La Casa' },
+  { url: '/images/interni/terrazzo.jpg', alt: 'Terrazzo con Vista', category: 'La Casa' },
 ];
 
 const Gallery: React.FC = () => {
@@ -72,8 +77,8 @@ const Gallery: React.FC = () => {
               key={cat}
               onClick={() => setFilter(cat)}
               className={`text-xs font-bold tracking-widest uppercase transition-all ${filter === cat
-                  ? 'text-orange-600 scale-110'
-                  : 'text-slate-300 hover:text-slate-500'
+                ? 'text-orange-600 scale-110'
+                : 'text-slate-300 hover:text-slate-500'
                 }`}
             >
               {cat}
