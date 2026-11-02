@@ -110,6 +110,9 @@ const App: React.FC = () => {
 
           <div className="mt-12 pt-6 border-t border-line flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted">
             <p>© {new Date().getFullYear()} {SITE.name} {SITE.city}. Tutti i diritti riservati.</p>
+            <p className="flex flex-wrap items-center justify-center gap-1.5 text-center">
+              CIR 19083049C234403 · CIN IT0830049C298NIWN3N
+            </p>
             <p className="flex items-center gap-1.5">
               Realizzato con
               <i className="fas fa-sun text-coral"></i>

@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   return (
     <section id="presentazione" className="relative">
       <div className="mx-auto max-w-7xl md:px-8">
-        <div className="relative flex h-[calc(100svh-80px)] max-h-[860px] min-h-[600px] items-center justify-center overflow-hidden md:mt-2 md:h-[calc(100svh-88px)] md:rounded-3xl">
+        <div className="relative flex min-h-[calc(100svh-80px)] items-center justify-center overflow-hidden py-2 md:mt-2 md:min-h-[calc(100svh-88px)] md:rounded-3xl">
           {/* Immagine di sfondo */}
           <img
             src="/images/milazzo.jpeg"
@@ -34,17 +34,20 @@ const Hero: React.FC = () => {
               alt="Casa del Sol - Holiday Apartment Milazzo"
               width={200}
               height={204}
-              className="mt-5 h-[180px] w-auto max-h-[30vh] object-contain sm:h-[200px] md:h-[240px] animate-fade-in-up"
+              className="mt-3 h-[360px] w-auto max-h-[calc(100svh-362px)] object-contain sm:h-[420px] md:h-[480px] md:max-h-[calc(100svh-390px)] animate-fade-in-up"
               style={{ filter: 'drop-shadow(0 6px 22px rgba(0,0,0,0.55)) drop-shadow(0 0 36px rgba(255,255,255,0.18))' }}
             />
             <h1 className="sr-only">Casa del Sol - Appartamento vacanze nel borgo antico di Milazzo</h1>
 
-            <p className="mt-6 max-w-2xl text-base font-light leading-relaxed text-white/90 sm:text-lg md:text-xl animate-fade-in-up delay-100">
+            <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/90 sm:text-lg md:text-xl animate-fade-in-up delay-100">
               Un appartamento con entrata indipendente nel cuore del borgo antico, lontano dal caos ma a pochi passi dal Castello e dal mare.
             </p>
 
-            <div className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row animate-fade-in-up delay-200">
-              <a href="#descrizione" className="btn btn-lg w-full bg-white text-ink shadow-card hover:bg-white/90 sm:w-auto">
+            <div className="mt-5 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row animate-fade-in-up delay-200">
+              <a
+                href="#descrizione"
+                className="btn btn-lg w-full border border-white/40 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 sm:w-auto"
+              >
                 Scopri la casa
               </a>
               <a
@@ -57,7 +60,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Fatti rapidi */}
-            <div className="mt-10 hidden flex-wrap items-center justify-center gap-2 sm:flex animate-fade-in delay-300">
+            <div className="mt-7 hidden flex-wrap items-center justify-center gap-2 sm:flex animate-fade-in delay-300">
               {FACTS.map((fact) => (
                 <span
                   key={fact.label}
@@ -72,7 +75,7 @@ const Hero: React.FC = () => {
             {/* Indicatore scroll */}
             <a
               href="#descrizione"
-              className="mt-6 hidden flex-col items-center gap-1.5 text-white/70 transition-colors hover:text-white md:flex"
+              className="mt-4 hidden flex-col items-center gap-1.5 text-white/70 transition-colors hover:text-white md:flex"
               aria-label="Scorri alla descrizione"
             >
               <span className="text-[10px] font-medium uppercase tracking-[0.2em]">Scopri</span>

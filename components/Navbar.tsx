@@ -17,18 +17,6 @@ const Navbar: React.FC = () => {
   return (
     <nav className="relative z-50 bg-white">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 md:px-8">
-        {/* Logo */}
-        <a href="#presentazione" className="flex flex-shrink-0 items-center" aria-label="Casa del Sol Milazzo — Home">
-          <img
-            src="/images/logocasadelsolmilazzo-trasp.png"
-            srcSet="/images/logocasadelsolmilazzo-trasp.png 1x, /images/logocasadelsolmilazzo-trasp@2x.png 2x"
-            alt="Casa del Sol Logo"
-            width={200}
-            height={204}
-            className="h-12 w-auto md:h-14"
-          />
-        </a>
-
         {/* Menu desktop */}
         <div className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
@@ -59,7 +47,7 @@ const Navbar: React.FC = () => {
         {/* Toggle mobile */}
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink transition-colors hover:bg-surface lg:hidden"
+          className="ml-auto flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink transition-colors hover:bg-surface lg:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? 'Chiudi il menu' : 'Apri il menu'}
