@@ -19,8 +19,11 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <a href="#" className="flex items-center">
           <img
-            src="/images/interni/logocasadelsoltrasp.png"
+            src="/images/logocasadelsoltrasp.png"
+            srcSet="/images/logocasadelsoltrasp.png 1x, /images/logocasadelsoltrasp@2x.png 2x"
             alt="Casa del Sol Logo"
+            width={587}
+            height={239}
             className="h-10 md:h-12 w-auto object-contain"
           />
         </a>
