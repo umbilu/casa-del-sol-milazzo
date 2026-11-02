@@ -1,13 +1,6 @@
 
 import React from 'react';
 
-const FACTS = [
-  { icon: 'fa-car', label: 'Parcheggio privato' },
-  { icon: 'fa-door-open', label: 'Entrata indipendente' },
-  { icon: 'fa-mountain-sun', label: 'Terrazzini vista mare' },
-  { icon: 'fa-wind', label: 'Aria condizionata' },
-];
-
 const Hero: React.FC = () => {
   return (
     <section id="presentazione" className="relative">
@@ -59,30 +52,6 @@ const Hero: React.FC = () => {
               </a>
             </div>
 
-            {/* Fatti rapidi */}
-            <div className="mt-7 hidden flex-wrap items-center justify-center gap-2 sm:flex animate-fade-in delay-300">
-              {FACTS.map((fact) => (
-                <span
-                  key={fact.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/20 px-3.5 py-2 text-xs font-medium text-white/90 backdrop-blur-md"
-                >
-                  <i className={`fas ${fact.icon} text-[11px] text-white/70`}></i>
-                  {fact.label}
-                </span>
-              ))}
-            </div>
-
-            {/* Indicatore scroll */}
-            <a
-              href="#descrizione"
-              className="mt-4 hidden flex-col items-center gap-1.5 text-white/70 transition-colors hover:text-white md:flex"
-              aria-label="Scorri alla descrizione"
-            >
-              <span className="text-[10px] font-medium uppercase tracking-[0.2em]">Scopri</span>
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30">
-                <i className="fas fa-chevron-down text-xs animate-bounce"></i>
-              </span>
-            </a>
           </div>
         </div>
       </div>
