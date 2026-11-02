@@ -20,12 +20,12 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <a href="#presentazione" className="flex flex-shrink-0 items-center" aria-label="Casa del Sol Milazzo — Home">
           <img
-            src="/images/logocasadelsoltrasp.png"
-            srcSet="/images/logocasadelsoltrasp.png 1x, /images/logocasadelsoltrasp@2x.png 2x"
+            src="/images/logocasadelsolmilazzo-trasp.png"
+            srcSet="/images/logocasadelsolmilazzo-trasp.png 1x, /images/logocasadelsolmilazzo-trasp@2x.png 2x"
             alt="Casa del Sol Logo"
-            width={587}
-            height={239}
-            className="h-10 w-auto md:h-11"
+            width={200}
+            height={204}
+            className="h-12 w-auto md:h-14"
           />
         </a>
 

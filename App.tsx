@@ -38,12 +38,12 @@ const App: React.FC = () => {
             {/* Brand */}
             <div>
               <img
-                src="/images/logocasadelsoltrasp.png"
-                srcSet="/images/logocasadelsoltrasp.png 1x, /images/logocasadelsoltrasp@2x.png 2x"
+                src="/images/logocasadelsolmilazzo-trasp.png"
+                srcSet="/images/logocasadelsolmilazzo-trasp.png 1x, /images/logocasadelsolmilazzo-trasp@2x.png 2x"
                 alt="Casa del Sol Milazzo"
-                width={587}
-                height={239}
-                className="h-12 w-auto"
+                width={200}
+                height={204}
+                className="h-16 w-auto"
               />
               <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
                 Il tuo angolo di paradiso nel borgo antico di Milazzo. Vivi la magia della Sicilia tra storia e mare.

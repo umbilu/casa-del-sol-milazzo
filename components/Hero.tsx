@@ -29,12 +29,12 @@ const Hero: React.FC = () => {
             </span>
 
             <img
-              src="/images/logocasadelsoltrasp.png"
-              srcSet="/images/logocasadelsoltrasp.png 1x, /images/logocasadelsoltrasp@2x.png 2x"
+              src="/images/logocasadelsolmilazzo-trasp.png"
+              srcSet="/images/logocasadelsolmilazzo-trasp.png 1x, /images/logocasadelsolmilazzo-trasp@2x.png 2x"
               alt="Casa del Sol - Holiday Apartment Milazzo"
-              width={587}
-              height={239}
-              className="mt-7 w-full max-w-[300px] h-auto object-contain sm:max-w-[400px] md:max-w-[470px] animate-fade-in-up"
+              width={200}
+              height={204}
+              className="mt-5 h-[180px] w-auto max-h-[30vh] object-contain sm:h-[200px] md:h-[240px] animate-fade-in-up"
               style={{ filter: 'drop-shadow(0 6px 22px rgba(0,0,0,0.55)) drop-shadow(0 0 36px rgba(255,255,255,0.18))' }}
             />
             <h1 className="sr-only">Casa del Sol - Appartamento vacanze nel borgo antico di Milazzo</h1>
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
             {/* Indicatore scroll */}
             <a
               href="#descrizione"
-              className="mt-8 hidden flex-col items-center gap-1.5 text-white/70 transition-colors hover:text-white md:flex"
+              className="mt-6 hidden flex-col items-center gap-1.5 text-white/70 transition-colors hover:text-white md:flex"
               aria-label="Scorri alla descrizione"
             >
               <span className="text-[10px] font-medium uppercase tracking-[0.2em]">Scopri</span>
