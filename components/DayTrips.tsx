@@ -48,36 +48,41 @@ const TRIPS_DATA: DayTrip[] = [
 
 const DayTrips: React.FC = () => {
   return (
-    <section id="gite" className="py-24 bg-slate-50 border-y border-slate-200/60">
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-slate-900">Gite Fuori Porta</h2>
-          <div className="w-24 h-1 bg-orange-600 mx-auto mb-6"></div>
-          <p className="text-slate-600 max-w-2xl mx-auto">
-            Partendo da Milazzo puoi organizzare splendide escursioni in ogni stagione, spaziando tra siti archeologici, borghi medievali e le Isole Eolie.
+    <section id="gite" className="py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">Intorno a Milazzo</span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">Gite fuori porta</h2>
+          <p className="mt-4 text-base font-light leading-relaxed text-muted md:text-lg">
+            Partendo da Milazzo puoi organizzare splendide escursioni in ogni stagione, tra siti archeologici, borghi
+            medievali e le Isole Eolie.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {TRIPS_DATA.map((trip, index) => (
-            <div
-              key={index}
-              className="p-8 bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all group flex flex-col justify-between"
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {TRIPS_DATA.map((trip) => (
+            <article
+              key={trip.name}
+              className="card card-hover group flex flex-col p-6"
             >
-              <div>
-                <div className="w-14 h-14 bg-slate-50 rounded-xl shadow-sm flex items-center justify-center text-orange-600 text-2xl mb-6 group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                  <i className={`fas ${trip.icon}`}></i>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">{trip.name}</h3>
-                <p className="text-orange-600 font-bold text-base mb-3">{trip.dist}</p>
-                <p className="text-sm text-slate-600 leading-relaxed font-light">{trip.desc}</p>
+              <div className="flex items-start justify-between gap-3">
+                <span className="icon-tile transition-colors group-hover:bg-brand group-hover:text-white">
+                  <i className={`fas ${trip.icon} text-lg`}></i>
+                </span>
+                <span className="rounded-full bg-brand-light px-3 py-1 text-xs font-semibold text-brand">
+                  {trip.dist}
+                </span>
               </div>
-            </div>
+              <h3 className="mt-5 text-lg font-bold tracking-tight text-ink">{trip.name}</h3>
+              <p className="mt-2 text-sm font-light leading-relaxed text-muted">{trip.desc}</p>
+            </article>
           ))}
         </div>
 
-        <p className="text-center text-xs text-slate-500 italic mt-12">
-          * I collegamenti marittimi per le Isole Eolie (Liberty Lines e Siremar) partono regolarmente dal porto di Milazzo anche durante la stagione invernale.
+        <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-muted">
+          <i className="fas fa-circle-info mr-1.5 text-brand"></i>
+          I collegamenti marittimi per le Isole Eolie (Liberty Lines e Siremar) partono regolarmente dal porto di Milazzo
+          anche durante la stagione invernale.
         </p>
       </div>
     </section>

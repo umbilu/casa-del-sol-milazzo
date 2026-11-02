@@ -1,86 +1,100 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { SITE } from '../site.ts';
+
+const NAV_LINKS = [
+  { name: 'Home', href: '#presentazione' },
+  { name: 'La Casa', href: '#descrizione' },
+  { name: 'Dintorni', href: '#punti-interesse' },
+  { name: 'Gite', href: '#gite' },
+  { name: 'Foto', href: '#immagini' },
+  { name: 'Contatti', href: '#contatti' },
+];
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-
-  const navLinks = [
-    { name: 'Home', href: '#presentazione' },
-    { name: 'Dettagli', href: '#descrizione' },
-    { name: 'Dintorni', href: '#punti-interesse' },
-    { name: 'Gite', href: '#gite' },
-    { name: 'Foto', href: '#immagini' },
-    { name: 'Contatti', href: '#contatti' },
-  ];
-
   return (
-    <nav className="fixed w-full z-50 transition-all duration-300 bg-white shadow-md py-3">
-      <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <a href="#" className="flex items-center">
+    <nav className="relative z-50 bg-white">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 md:px-8">
+        {/* Logo */}
+        <a href="#presentazione" className="flex flex-shrink-0 items-center" aria-label="Casa del Sol Milazzo — Home">
           <img
             src="/images/logocasadelsoltrasp.png"
             srcSet="/images/logocasadelsoltrasp.png 1x, /images/logocasadelsoltrasp@2x.png 2x"
             alt="Casa del Sol Logo"
             width={587}
             height={239}
-            className="h-10 md:h-12 w-auto object-contain"
+            className="h-10 w-auto md:h-11"
           />
         </a>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex space-x-8 items-center">
-          {navLinks.map((link) => (
+        {/* Menu desktop */}
+        <div className="hidden items-center gap-1 lg:flex">
+          {NAV_LINKS.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="font-medium transition-colors hover:text-yellow-500 text-[#00628B]"
+              className="rounded-full px-4 py-2.5 text-[15px] font-medium text-ink transition-colors hover:bg-surface"
             >
               {link.name}
             </a>
           ))}
+        </div>
+
+        {/* Azioni desktop */}
+        <div className="hidden items-center gap-2 lg:flex">
           <a
-            href="#contatti"
-            className="text-white px-6 py-2 rounded-full font-semibold transition-transform active:scale-95 shadow-lg"
-            style={{ backgroundColor: '#00628B' }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#004d6d'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00628B'}
+            href={`tel:${SITE.phoneRaw}`}
+            className="rounded-full px-4 py-2.5 text-[15px] font-semibold text-ink transition-colors hover:bg-surface"
           >
+            <i className="fas fa-phone mr-2 text-xs text-brand"></i>
+            {SITE.phoneDisplay}
+          </a>
+          <a href="#contatti" className="btn btn-primary btn-sm">
             Prenota
           </a>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Toggle mobile */}
         <button
-          className="lg:hidden text-2xl focus:outline-none"
+          type="button"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink transition-colors hover:bg-surface lg:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-expanded={isMenuOpen}
+          aria-label={isMenuOpen ? 'Chiudi il menu' : 'Apri il menu'}
         >
-          <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-[#00628B]`}></i>
+          <i className={`fas ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-lg`}></i>
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menu mobile */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-white absolute top-full left-0 w-full shadow-xl animate-fade-in">
-          <div className="flex flex-col p-6 space-y-4">
-            {navLinks.map((link) => (
+        <div className="border-t border-line-soft bg-white animate-fade-in lg:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4">
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-slate-800 text-lg font-medium border-b border-slate-100 pb-2"
+                className="rounded-xl px-4 py-3 text-base font-medium text-ink transition-colors hover:bg-surface"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
               </a>
             ))}
-            <a
-              href="#contatti"
-              className="text-white text-center py-3 rounded-lg font-bold"
-              style={{ backgroundColor: '#00628B' }}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Prenota Ora
-            </a>
+            <div className="mt-3 grid gap-2 border-t border-line-soft pt-4">
+              <a href={`tel:${SITE.phoneRaw}`} className="btn btn-outline w-full">
+                <i className="fas fa-phone text-xs"></i>
+                {SITE.phoneDisplay}
+              </a>
+              <a
+                href="#contatti"
+                className="btn btn-primary w-full"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Prenota ora
+              </a>
+            </div>
           </div>
         </div>
       )}

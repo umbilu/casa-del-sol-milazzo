@@ -2,23 +2,23 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { GalleryImage } from '../types.ts';
 
 const IMAGES: GalleryImage[] = [
-  { url: '/images/interni/terrazzo.jpg', alt: 'Terrazzino con Vista Mare', category: 'La Casa' },
-  { url: '/images/interni/salotto.jpg', alt: 'Salotto Confortevole', category: 'La Casa' },
-  { url: '/images/interni/20250830_112025.jpg', alt: 'Camera da Letto Matrimoniale', category: 'La Casa' },
-  { url: '/images/interni/20250830_112506.jpg', alt: 'Cucina Attrezzata', category: 'La Casa' },
-  { url: '/images/interni/bagno.jpg', alt: 'Bagno Moderno', category: 'La Casa' },
-  { url: '/images/interni/20250830_110757.jpg', alt: 'Soggiorno Luminoso', category: 'La Casa' },
-  { url: '/images/interni/20250830_112056.jpg', alt: 'Dettagli e Finiture', category: 'La Casa' },
-  { url: '/images/interni/20250830_112643.jpg', alt: 'Zona Relax', category: 'La Casa' },
-  { url: '/images/interni/20250830_112645.jpg', alt: 'Spazi Accoglienti', category: 'La Casa' },
-  { url: '/images/interni/20250830_112815.jpg', alt: 'Arredi e Comfort', category: 'La Casa' },
-  { url: '/images/interni/20250830_113247.jpg', alt: 'Vista Interna', category: 'La Casa' },
-  { url: '/images/interni/20250830_113259.jpg', alt: 'Ambiente Solare', category: 'La Casa' },
-  { url: '/images/interni/camerapranzo.jpg', alt: 'Sala da Pranzo', category: 'La Casa' },
-  { url: '/images/interni/doccia.jpg', alt: 'Dettaglio Doccia', category: 'La Casa' },
+  { url: '/images/interni/terrazzo.jpg', alt: 'Terrazzino con vista mare', category: 'La Casa' },
+  { url: '/images/interni/salotto.jpg', alt: 'Salotto confortevole', category: 'La Casa' },
+  { url: '/images/interni/20250830_112025.jpg', alt: 'Camera da letto matrimoniale', category: 'La Casa' },
+  { url: '/images/interni/20250830_112506.jpg', alt: 'Cucina attrezzata', category: 'La Casa' },
+  { url: '/images/interni/bagno.jpg', alt: 'Bagno moderno', category: 'La Casa' },
+  { url: '/images/interni/20250830_110757.jpg', alt: 'Soggiorno luminoso', category: 'La Casa' },
+  { url: '/images/interni/20250830_112056.jpg', alt: 'Dettagli e finiture', category: 'La Casa' },
+  { url: '/images/interni/20250830_112643.jpg', alt: 'Zona relax', category: 'La Casa' },
+  { url: '/images/interni/20250830_112645.jpg', alt: 'Spazi accoglienti', category: 'La Casa' },
+  { url: '/images/interni/20250830_112815.jpg', alt: 'Arredi e comfort', category: 'La Casa' },
+  { url: '/images/interni/20250830_113247.jpg', alt: 'Vista interna', category: 'La Casa' },
+  { url: '/images/interni/20250830_113259.jpg', alt: 'Ambiente solare', category: 'La Casa' },
+  { url: '/images/interni/camerapranzo.jpg', alt: 'Sala da pranzo', category: 'La Casa' },
+  { url: '/images/interni/doccia.jpg', alt: 'Dettaglio doccia', category: 'La Casa' },
 ];
 
-const INITIAL_COUNT = 6;
+const INITIAL_COUNT = 5;
 
 const Gallery: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
@@ -26,10 +26,7 @@ const Gallery: React.FC = () => {
 
   const displayedImages = showAll ? IMAGES : IMAGES.slice(0, INITIAL_COUNT);
 
-  const openLightbox = (index: number) => {
-    setSelectedImageIndex(index);
-  };
-
+  const openLightbox = (index: number) => setSelectedImageIndex(index);
   const closeLightbox = () => setSelectedImageIndex(null);
 
   const showNext = useCallback((e?: React.MouseEvent) => {
@@ -57,120 +54,148 @@ const Gallery: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedImageIndex, showNext, showPrev]);
 
+  // Blocca lo scroll della pagina quando il lightbox è aperto
+  useEffect(() => {
+    document.body.style.overflow = selectedImageIndex !== null ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [selectedImageIndex]);
+
   return (
-    <section id="immagini" className="py-16 md:py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-8 max-w-5xl">
-        {/* Header compatto ed elegante */}
-        <div className="text-center mb-10 max-w-2xl mx-auto">
-          <span className="text-xs font-semibold tracking-widest uppercase text-amber-600 block mb-2">
-            Gli Spazi
-          </span>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-3">
-            La Nostra Galleria
-          </h2>
-          <div className="w-12 h-0.5 bg-amber-500 mx-auto mb-4"></div>
-          <p className="text-slate-500 text-sm md:text-base font-light">
-            Uno sguardo agli ambienti curati e luminosi di Casa del Sol.
-          </p>
+    <section id="immagini" className="border-t border-line-soft py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            <span className="eyebrow">Gli spazi</span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">Foto della casa</h2>
+            <p className="mt-3 text-base font-light leading-relaxed text-muted">
+              Uno sguardo agli ambienti curati e luminosi di Casa del Sol.
+            </p>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted">
+            <i className="fas fa-camera text-brand"></i>
+            <span>{IMAGES.length} foto</span>
+          </div>
         </div>
 
-        {/* Griglia foto compatta (aspect 4/3) */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
-          {displayedImages.map((img, index) => (
-            <div
-              key={index}
-              onClick={() => openLightbox(index)}
-              className="group relative aspect-[4/3] overflow-hidden bg-slate-100 cursor-pointer rounded-xl border border-slate-200/70 shadow-sm hover:shadow-md hover:border-slate-300 transition-all"
-            >
-              <img
-                src={img.url}
-                alt={img.alt}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 md:p-4">
-                <div className="flex items-center justify-between w-full text-white text-xs md:text-sm font-medium">
-                  <span className="truncate pr-2">{img.alt}</span>
-                  <span className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-expand text-[10px]"></i>
-                  </span>
-                </div>
-              </div>
+        {/* Mosaico (anteprima) */}
+        {!showAll ? (
+          <div className="relative mt-8">
+            <div className="grid grid-cols-2 gap-2.5 md:h-[520px] md:grid-cols-4 md:grid-rows-2 md:gap-3">
+              {displayedImages.map((img, index) => (
+                <button
+                  type="button"
+                  key={img.url}
+                  onClick={() => openLightbox(index)}
+                  className={`group relative overflow-hidden rounded-xl bg-surface md:rounded-2xl ${
+                    index === 0
+                      ? 'col-span-2 aspect-[16/10] md:row-span-2 md:aspect-auto'
+                      : 'aspect-square md:aspect-auto'
+                  }`}
+                  aria-label={`Apri foto: ${img.alt}`}
+                >
+                  <img
+                    src={img.url}
+                    alt={img.alt}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                  <span className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10"></span>
+                </button>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Pulsante Mostra Tutte / Meno */}
-        <div className="mt-8 text-center">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-semibold border border-slate-200 text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm active:scale-95"
-          >
-            <span>
-              {showAll
-                ? 'Mostra meno foto'
-                : `Mostra tutte le foto (${IMAGES.length})`}
-            </span>
-            <i className={`fas fa-chevron-${showAll ? 'up' : 'down'} text-xs text-slate-400`}></i>
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-xl border border-ink bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-pill transition-colors hover:bg-surface md:bottom-5 md:right-5"
+            >
+              <i className="fas fa-grip text-xs"></i>
+              Mostra tutte le foto
+            </button>
+          </div>
+        ) : (
+          /* Griglia completa */
+          <div className="mt-8 grid grid-cols-2 gap-2.5 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+            {displayedImages.map((img, index) => (
+              <button
+                type="button"
+                key={img.url}
+                onClick={() => openLightbox(index)}
+                className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-surface md:rounded-2xl"
+                aria-label={`Apri foto: ${img.alt}`}
+              >
+                <img
+                  src={img.url}
+                  alt={img.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                />
+                <span className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10"></span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {showAll && (
+          <div className="mt-8 text-center">
+            <button type="button" onClick={() => setShowAll(false)} className="btn btn-outline btn-sm">
+              <i className="fas fa-chevron-up text-xs"></i>
+              Mostra meno foto
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Lightbox a tutto schermo */}
+      {/* Lightbox */}
       {selectedImageIndex !== null && (
         <div
-          className="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10 animate-fade-in"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 animate-fade-in md:p-8"
           onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Galleria fotografica"
         >
-          {/* Close button */}
           <button
-            className="absolute top-6 right-6 text-white/80 hover:text-white text-2xl w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:right-6 md:top-6"
             onClick={closeLightbox}
             aria-label="Chiudi"
           >
-            <i className="fas fa-times"></i>
+            <i className="fas fa-xmark text-lg"></i>
           </button>
 
-          <div className="flex w-full h-full items-center justify-between max-w-6xl mx-auto">
-            {/* Prev button */}
-            <button
-              className="text-white/70 hover:text-white transition-colors p-3 rounded-full hover:bg-white/10"
-              onClick={showPrev}
-              aria-label="Foto precedente"
-            >
-              <i className="fas fa-chevron-left text-2xl md:text-3xl"></i>
-            </button>
+          <button
+            className="absolute left-2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:left-6"
+            onClick={showPrev}
+            aria-label="Foto precedente"
+          >
+            <i className="fas fa-chevron-left"></i>
+          </button>
 
-            {/* Immagine attiva */}
-            <div
-              className="flex-1 flex flex-col items-center justify-center px-2 md:px-6 max-h-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <img
-                src={IMAGES[selectedImageIndex].url}
-                alt={IMAGES[selectedImageIndex].alt}
-                className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl"
-              />
-              <div className="mt-5 text-center">
-                <p className="text-white font-serif text-lg md:text-xl font-medium">
-                  {IMAGES[selectedImageIndex].alt}
-                </p>
-                <div className="mt-1 text-xs text-slate-400 tracking-wider">
-                  {selectedImageIndex + 1} di {IMAGES.length}
-                </div>
-              </div>
+          <div
+            className="flex max-h-full w-full max-w-5xl flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={IMAGES[selectedImageIndex].url}
+              alt={IMAGES[selectedImageIndex].alt}
+              className="max-h-[74vh] w-auto max-w-full rounded-xl object-contain md:rounded-2xl"
+            />
+            <div className="mt-4 flex items-center gap-3 text-sm text-white/80">
+              <span>{IMAGES[selectedImageIndex].alt}</span>
+              <span className="text-white/30">·</span>
+              <span className="tabular-nums">{selectedImageIndex + 1} / {IMAGES.length}</span>
             </div>
-
-            {/* Next button */}
-            <button
-              className="text-white/70 hover:text-white transition-colors p-3 rounded-full hover:bg-white/10"
-              onClick={showNext}
-              aria-label="Foto successiva"
-            >
-              <i className="fas fa-chevron-right text-2xl md:text-3xl"></i>
-            </button>
           </div>
+
+          <button
+            className="absolute right-2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:right-6"
+            onClick={showNext}
+            aria-label="Foto successiva"
+          >
+            <i className="fas fa-chevron-right"></i>
+          </button>
         </div>
       )}
     </section>

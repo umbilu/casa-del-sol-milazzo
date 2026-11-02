@@ -1,53 +1,196 @@
-/* Base styles and Tailwind directives */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ==========================================================================
+   Casa del Sol — design system (Tailwind via CDN, config in index.html)
+   ========================================================================== */
 
 :root {
-  --primary-blue: #00628B;
-  --accent-red: #D32F2F;
-  --golden-yellow: #F5A623;
-  --light-blue: #5DADE2;
+  --brand: #00628b;
+  --brand-dark: #004d6d;
+  --brand-light: #e8f2f7;
+  --coral: #ff385c;
+  --coral-dark: #e31c5f;
+  --ink: #222222;
+  --muted: #6a6a6a;
+  --line: #dddddd;
+  --line-soft: #ebebeb;
+  --surface: #f7f7f7;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Roboto', sans-serif;
+  font-feature-settings: 'kern' 1;
 }
 
-h1, h2, h3, h4, h5, h6, .font-serif {
-  font-family: 'Playfair Display', serif;
+::selection {
+  background: var(--brand);
+  color: #fff;
 }
 
-html {
-  scroll-behavior: smooth;
+img {
+  -webkit-user-drag: none;
 }
 
-/* Animations */
+/* --- Bottoni ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.2;
+  padding: 0.875rem 1.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.15s ease, border-color 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary:hover {
+  background: var(--brand-dark);
+}
+
+.btn-accent {
+  background: linear-gradient(90deg, #e61e4d 0%, #e31c5f 55%, #d70466 100%);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.btn-accent:hover {
+  filter: brightness(0.94);
+}
+
+.btn-outline {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.btn-outline:hover {
+  background: var(--surface);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  background: var(--surface);
+}
+
+.btn-sm {
+  font-size: 0.875rem;
+  padding: 0.625rem 1.125rem;
+}
+
+.btn-lg {
+  font-size: 1rem;
+  padding: 1rem 1.75rem;
+}
+
+/* --- Elementi ricorrenti ------------------------------------------------- */
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c13515;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-radius: 1rem;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border-color: var(--line);
+}
+
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.875rem;
+  background: var(--surface);
+  color: var(--brand);
+}
+
+.link-quiet {
+  color: var(--ink);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease;
+}
+
+.link-quiet:hover {
+  background-size: 100% 1px;
+}
+
+/* Focus visibile ma discreto */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* --- Animazioni ---------------------------------------------------------- */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.96); }
   to { opacity: 1; transform: scale(1); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.7s ease-out forwards;
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .animate-scale-in {
@@ -56,3 +199,13 @@ html {
 
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-scale-in {
+    animation: none;
+  }
+}
